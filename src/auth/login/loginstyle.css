@@ -1,0 +1,191 @@
+/*
+body{
+    background-image: url("../client/images/erpbacgblur.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+*/
+body{
+    position: absolute;
+    font-size: 1em;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.nav{
+    width: 100%;
+    height: 75px;
+    line-height: 65px;
+    padding: 0px;
+    background-color: white;
+    background-image: linear-gradient(#033747,#012733)
+}
+.header-container {
+    margin: auto;
+    padding-top: 3rem;
+    width: 100%;
+    height: 150%;
+   /* background-image: url("../client/images/erpbacgblur.jpeg"); */
+    background-image: url("../client/images/erpback12.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    padding-bottom: 12rem;
+}
+.login-container {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /*margin-top: 120px;
+    margin-bottom: 100px;
+    */
+    width: 320px;
+    height: 380px;
+    /* background-color: rgba(2, 7, 67, 0.7); */
+    background: linear-gradient(to top, #69254f 0%, #da07199d , #0adbb89d 100%);
+    box-shadow: 2px 2px 2px #f6f2f2, 0 0 34px rgb(255 255 245), 0 0 25px rgb(252 252 255);
+    padding-bottom: 2px;
+    border-radius: 8px;
+}
+.login-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 20px;
+}
+.login-text {
+    color: rgb(12, 34, 113);
+    font-size: 30px;
+    font-weight: 600;
+}
+.login-text img{
+    width: 70px;
+    height: 60px;
+}
+.login-underline {
+    /* width: 90px;
+    height: 3px;
+    background-color: rgb(12, 34, 113);
+    border-radius: 9px; */
+    color: rgb(255, 255, 255);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.login-inputs {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.login-input {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 280px;
+    height: 40px;
+    border-radius: 2em;
+    background-color: rgb(255, 255, 255);
+}
+.login-input span{
+    margin: 0px 30px;
+}
+.login-input input{
+    width: 300px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: rgb(14, 4, 105);
+    font-size: 19px;
+    font-weight: 500;
+}
+.forgot-password {
+    padding-left: 62px;
+    margin-top: 27px;
+    color: antiquewhite;
+    font-size: 18px;
+}
+.login-submit-container {
+    display: flex;
+    gap: 5px;
+    margin: 25px auto;
+}
+.login-submit-container button {
+    border: none;
+    outline: none;
+    border-radius: 2em;
+    padding: 1px;
+}
+.login-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 135px;
+    height: 41px;
+    color: rgb(70, 181, 230);
+    background-color: #ffffff;
+    border-radius: 2em;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.login-captch {
+    display: flex;
+    gap: 1px;
+    margin: 10px auto;
+    width: 280px;
+    height: 41px;
+}
+#captchaValue {
+    height: 41px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    line-height: 25px;
+    width: 100px;
+    background-color: #fff;
+    border-radius: 20px 0 0 20px;
+    color: #000;
+    font-weight: 600;
+    border-right: 2px solid gray;
+}
+.login-captch input {
+    border-radius: 0 20px 20px 0 !important;
+    width: 135px;
+    height: 41px;
+    font-weight: 500;
+    margin-left: 2px;
+    border: none;
+    outline: none;
+}
+.login-captch img {
+    width: 45px;
+    height: 40px;
+}
+.login-captch button {
+    border: none;
+    outline: none;
+}
+button :hover,button:focus{
+    
+    /*color: rgb(241, 241, 245);
+    background-color: #f1eded; 
+    */
+    /*
+    background-color: rgb(0, 7, 70); 
+    box-shadow: 0 0 25px rgb(255, 255, 255), 0 0 25px rgb(255, 255, 255);
+    */
+    box-shadow: 0 0 25px rgb(201, 200, 200), 0 0 25px rgb(200, 200, 200);
+    font-weight: 720;
+    cursor:pointer;
+}

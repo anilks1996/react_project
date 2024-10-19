@@ -1,0 +1,32 @@
+/* BreakingFlower.css */
+.breaking-flower {
+    position: relative;
+    cursor: pointer; /* Add cursor pointer to indicate clickability */
+  }
+  
+  .petal {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: pink; /* Adjust color as needed */
+    transform: rotate(45deg);
+    transition: all 0.5s ease-in-out; /* Add transition for smooth animation */
+  }
+  
+  .center {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: yellow; /* Adjust color as needed */
+    top: 50px;
+    left: 50px;
+    transition: all 0.5s ease-in-out; /* Add transition for smooth animation */
+  }
+  
+  .break {
+    transform: translateY(-100px) scale(0.5); /* Move petals upward and scale down */
+    opacity: 0; /* Fade out petals */
+  }
+  

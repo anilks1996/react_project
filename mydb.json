@@ -1,0 +1,1559 @@
+{
+  "userLogin": {
+    "username": "Anil",
+    "password": "321"
+  },
+  "getClientCode": [
+    {
+      "code": "GMDA"
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode",
+      "Nmae": "GMDA"
+    },
+    {
+      "id": 2,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "id": 3,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "name": "Establishment",
+      "type": "Admin"
+    },
+    {
+      "id": 2,
+      "name": "Accounts Admin",
+      "type": "Accounts"
+    },
+    {
+      "id": 3,
+      "name": "Leave",
+      "type": "Leave"
+    },
+    {
+      "id": 4,
+      "name": "Salary Proccessing",
+      "type": "Accounts"
+    },
+    {
+      "id": 5,
+      "name": "Project Admin",
+      "type": "Accounts"
+    },
+    {
+      "id": 6,
+      "name": "Store Admin",
+      "type": "Admin"
+    },
+    {
+      "id": 7,
+      "name": "Purchase Admin",
+      "type": "Admin"
+    },
+    {
+      "id": 8,
+      "name": "Project Admin",
+      "type": "Admin"
+    },
+    {
+      "id": 9,
+      "name": "Account Approver Admin",
+      "type": "Admin"
+    },
+    {
+      "id": 10,
+      "name": "Store And Purchase Approver Admin",
+      "type": "Admin"
+    }
+  ],
+  "profile": [
+    {
+      "name": "typicode",
+      "desc": "profile"
+    }
+  ],
+  "loginData": [
+    {
+      "id": 1,
+      "username": "Anil",
+      "password": "321"
+    },
+    {
+      "id": 2,
+      "username": "Kumar",
+      "password": "321"
+    },
+    {
+      "id": 3,
+      "username": "Sharma",
+      "password": "321"
+    },
+    {
+      "id": 4,
+      "username": "20003",
+      "password": "20003"
+    },
+    {
+      "id": 5,
+      "username": "40131",
+      "password": "40131"
+    },
+    {
+      "id": 6,
+      "username": "40006",
+      "password": "40006"
+    },
+    {
+      "id": 7,
+      "username": "40280",
+      "password": "40280"
+    },
+    {
+      "id": 8,
+      "username": "40005",
+      "password": "40005"
+    },
+    {
+      "id": 9,
+      "username": "40109",
+      "password": "40109"
+    }
+  ],
+  "leaveTypeMaster": [
+    {
+      "id": 879654321,
+      "code": "CLT",
+      "name": "Casual Leave",
+      "excludeHoliday": "Yes",
+      "prefixSuffix": "No",
+      "description": "Casual Leave",
+      "leaveType.id": 754066180,
+      "leaveType.name": "Casual Leave",
+      "": "754066180",
+      "exclude": "Casual Leave"
+    },
+    {
+      "": "754066181",
+      "code": "SLT",
+      "name": "Sick Leave",
+      "exclude": "Sick Leave",
+      "id": 879654322
+    }
+  ],
+  "leaveTypeList": [
+    {
+      "id": 754066180,
+      "code": "CL",
+      "name": "Casual Leave",
+      "description": "Casual Leave"
+    },
+    {
+      "code": "SLT",
+      "name": "Sick Leave",
+      "description": "Sick Leave",
+      "id": 754066181
+    },
+    {
+      "code": "ML",
+      "name": "Medical Leave",
+      "description": "Medical Leave",
+      "id": 754066182
+    }
+  ],
+  "holidayCalender": [
+    {
+      "id": 754066175,
+      "group": "Global",
+      "holidayName": "Basant Panchami",
+      "holidayType": "RH",
+      "fromDate": "15/02/2024",
+      "toDate": "15/02/2024",
+      "fromTime": "15/02/2024",
+      "toTime": "15/02/2024",
+      "description": "Restricted Holiday"
+    },
+    {
+      "group": "Global",
+      "holidayName": "Shiv Ratri",
+      "holidayType": "RH",
+      "fromDate": "2024-03-08",
+      "toDate": "2024-03-08",
+      "fromTime": "12:17",
+      "toTime": "14:18",
+      "description": "Shiv Ratri",
+      "id": 754066176
+    }
+  ],
+  "leavePolicy": [
+    {
+      "id": 710017027,
+      "leavePolicyDuration": "A Year",
+      "startDate": "2024-01-01",
+      "EndDate": "2024-12-31",
+      "leaveType": "Casual",
+      "staffType": "Deputation",
+      "employeeType": "Deputation",
+      "staffGrade": "Staff Grade",
+      "ApplicableTo": "Male",
+      "leavename": "Casual Leave",
+      "noOfleaves": "12",
+      "noOfSplit": "1",
+      "leaveCreditedAt": "start",
+      "maxDaysAtAStretch": "12",
+      "restrictedCountForMaximumDays": "0",
+      "minServiceRequired": "0",
+      "minServiceRequiredDays": "Year",
+      "isCommuted": "No",
+      "restrictNoOfTimesTo": "1",
+      "forEntireService": "0",
+      "combinableleavetype": "Casual Leave Type",
+      "ifTheLeaveIsEncashable": "No"
+    }
+  ],
+  "subTypeList": [
+    {
+      "value": -1,
+      "label": "-- Select --"
+    },
+    {
+      "value": 123456,
+      "label": "Holiday"
+    },
+    {
+      "value": 789123,
+      "label": "Event"
+    },
+    {
+      "value": 456789,
+      "label": "RH"
+    }
+  ],
+  "employeeList": [
+    {
+      "value": 403570693,
+      "label": "Sh. Rakesh Kumar Gupta",
+      "code": "20003"
+    },
+    {
+      "value": 123457890,
+      "label": "Mr. Anil Kumar Sharma",
+      "code": "20001"
+    },
+    {
+      "value": 513933312,
+      "label": "Mr.Jagat Singh",
+      "code": "20004"
+    },
+    {
+      "value": 403308555,
+      "label": "Mr.SHIV SHANKAR",
+      "code": "20005"
+    },
+    {
+      "value": 413106183,
+      "label": "Ms.JYOTI",
+      "code": "20006"
+    },
+    {
+      "value": 403308553,
+      "label": "Mrs.Divya Rani",
+      "code": "20007"
+    },
+    {
+      "id": 504332290,
+      "label": "Mr.Nimish",
+      "code": "20008"
+    },
+    {
+      "id": 413106181,
+      "label": "Ms.Neetu Khatana",
+      "code": "20009"
+    },
+    {
+      "id": 403570705,
+      "label": "Sh.Surender Dutt Gautam",
+      "code": "20010"
+    },
+    {
+      "value": 422281216,
+      "label": "Ms.Shruti Saxena",
+      "code": "20011"
+    },
+    {
+      "value": 506265634,
+      "label": "Mr.Paras Tomar",
+      "code": "20012"
+    }
+  ],
+  "categoryCols": [
+    {
+      "id": 41287682,
+      "name": "SC",
+      "description": "SC",
+      "parent_category_id": null
+    },
+    {
+      "id": 42860544,
+      "name": "ST",
+      "description": "ST",
+      "parent_category_id": null
+    },
+    {
+      "id": 41287684,
+      "name": "SC",
+      "description": "",
+      "parent_category_id": 41287682
+    },
+    {
+      "id": 42860545,
+      "name": "ST",
+      "description": "ST",
+      "parent_category_id": 42860544
+    },
+    {
+      "id": 41287683,
+      "name": "OBC",
+      "description": "OBC",
+      "parent_category_id": null
+    },
+    {
+      "id": 43089921,
+      "name": "OBC",
+      "description": "OBC",
+      "parent_category_id": 41287683
+    },
+    {
+      "id": 43089922,
+      "name": "DT",
+      "description": "",
+      "parent_category_id": 43089920
+    },
+    {
+      "id": 43089923,
+      "name": "VJ",
+      "description": "",
+      "parent_category_id": 43089920
+    },
+    {
+      "id": 43089924,
+      "name": "NT",
+      "description": "",
+      "parent_category_id": 43089920
+    },
+    {
+      "id": 43089925,
+      "name": "MOBC",
+      "description": "",
+      "parent_category_id": 41287683
+    },
+    {
+      "id": 188940288,
+      "name": "Gond",
+      "description": "",
+      "parent_category_id": 42860544
+    },
+    {
+      "id": 348651520,
+      "name": "Open",
+      "description": null,
+      "parent_category_id": null
+    },
+    {
+      "id": 41287680,
+      "name": "Unreserved",
+      "description": "",
+      "parent_category_id": null
+    },
+    {
+      "id": 41287681,
+      "name": "Unreserved",
+      "description": "",
+      "parent_category_id": 41287680
+    }
+  ],
+  "accountsChartList": [
+    {
+      "id": 356581377,
+      "name": "Expense",
+      "chartCode": "Expense",
+      "parent_chart_id": null,
+      "lavel_s": 0,
+      "type": "Expense",
+      "acc_company_id": null,
+      "account_type": "General",
+      "code": "Expense"
+    },
+    {
+      "id": 356581378,
+      "name": "Income",
+      "chartCode": "Income",
+      "parent_chart_id": null,
+      "lavel_s": 0,
+      "type": "Income",
+      "acc_company_id": null,
+      "account_type": "General",
+      "code": "Income/"
+    },
+    {
+      "id": 356581376,
+      "name": "Asset",
+      "chartCode": "Asset",
+      "parent_chart_id": null,
+      "lavel_s": 0,
+      "type": "Asset",
+      "acc_company_id": null,
+      "account_type": "General",
+      "code": "Asset/"
+    },
+    {
+      "id": 356581379,
+      "name": "Liability",
+      "chartCode": "Liability",
+      "parent_chart_id": null,
+      "lavel_s": 0,
+      "type": "Liability",
+      "acc_company_id": null,
+      "account_type": "General",
+      "code": "Liability/"
+    },
+    {
+      "id": 376963111,
+      "name": "Current Asset",
+      "chartCode": "A02",
+      "parent_chart_id": 356581376,
+      "lavel_s": 1,
+      "type": "Asset",
+      "acc_company_id": 373882880,
+      "account_type": "General",
+      "code": "Asset//A02"
+    },
+    {
+      "id": 905510916,
+      "name": "Indirect Expenses",
+      "chartCode": "B01",
+      "parent_chart_id": 356581377,
+      "lavel_s": 1,
+      "type": "Expense",
+      "acc_company_id": 373882880,
+      "account_type": "General",
+      "code": "Expense/B01/"
+    },
+    {
+      "id": 567967749,
+      "name": "Current Liabilities",
+      "chartCode": "D04",
+      "parent_chart_id": 356581379,
+      "lavel_s": 1,
+      "type": "Liability",
+      "acc_company_id": 373882880,
+      "account_type": "General",
+      "code": "Liability//D04/"
+    },
+    {
+      "id": 454426627,
+      "name": "Grants Received on Revenue Account",
+      "chartCode": "C02",
+      "parent_chart_id": 356581378,
+      "lavel_s": 1,
+      "type": "Income",
+      "acc_company_id": 373882880,
+      "account_type": "General",
+      "code": "Income//C02"
+    },
+    {
+      "id": 380928003,
+      "name": "Loans, Advances & Other assets",
+      "chartCode": "A0201",
+      "parent_chart_id": 376963111,
+      "lavel_s": 2,
+      "type": "Asset",
+      "acc_company_id": 373882880,
+      "account_type": "General",
+      "code": "Asset//A02/A0201"
+    },
+    {
+      "id": 905510973,
+      "name": "MOBILITY",
+      "chartCode": "B01-07",
+      "parent_chart_id": 905510916,
+      "lavel_s": 2,
+      "type": "Expense",
+      "acc_company_id": 373882880,
+      "account_type": "General",
+      "code": "Expense/B01/B01-07/"
+    },
+    {
+      "id": 442826816,
+      "name": "Bank",
+      "chartCode": "A0202",
+      "parent_chart_id": 376963111,
+      "lavel_s": 2,
+      "type": "Asset",
+      "acc_company_id": 373882880,
+      "account_type": "General",
+      "code": "Asset//A02/A0202"
+    },
+    {
+      "id": 448135177,
+      "name": "Current Assets",
+      "chartCode": "A0203",
+      "parent_chart_id": 376963111,
+      "lavel_s": 2,
+      "type": "Asset",
+      "acc_company_id": 373882880,
+      "account_type": "General",
+      "code": "Asset//A02/A0203"
+    },
+    {
+      "id": 567967763,
+      "name": "Duties Taxes",
+      "chartCode": "D04-05",
+      "parent_chart_id": 567967749,
+      "lavel_s": 2,
+      "type": "Liability",
+      "acc_company_id": 373882880,
+      "account_type": "General",
+      "code": "Liability//D04/D04-05/"
+    },
+    {
+      "accCompany.id": "347275265",
+      "accCompanyFinancialYear.id": "906002432",
+      "parent_chart_id": 442826816,
+      "name": "Account test",
+      "isSchedule": "",
+      "chartCode":"B01-024",
+      "bankAccNo": "90980098",
+      "bankBranch.id": "Delhi",
+      "section": "TDS 94J",
+      "sectionCode": "TDS 94J",
+      "id": 905510974
+    },
+    {
+      "accCompany.id": "347275265",
+      "accCompanyFinancialYear.id": "906002432",
+      "chartCode": "A01-01",
+      "name": "Accounts ",
+      "parent_chart_id": 356581379,
+      "isSchedule": "",
+      "bankAccNo": "909800980",
+      "bankBranch.id": "Delhi",
+      "section": "TDS 94J",
+      "sectionCode": "TDS 94J",
+      "tdsPercentage": "40",
+      "id": 905510975
+    }
+  ],
+  "accountsBaseList": [
+    {
+      "id": 356581377,
+      "name": "Expense",
+      "chart_code": "",
+      "parent_chart_id": null,
+      "lavel_s": 0,
+      "type": "Expense",
+      "acc_company_id": null,
+      "account_type": "General",
+      "code": "Expense"
+    },
+    {
+      "id": 356581378,
+      "name": "Income",
+      "chart_code": "",
+      "parent_chart_id": null,
+      "lavel_s": 0,
+      "type": "Income",
+      "acc_company_id": null,
+      "account_type": "General",
+      "code": "Income/"
+    },
+    {
+      "id": 356581376,
+      "name": "Asset",
+      "chart_code": "",
+      "parent_chart_id": null,
+      "lavel_s": 0,
+      "type": "Asset",
+      "acc_company_id": null,
+      "account_type": "General",
+      "code": "Asset/"
+    },
+    {
+      "id": 356581379,
+      "name": "Liability",
+      "chart_code": "",
+      "parent_chart_id": null,
+      "lavel_s": 0,
+      "type": "Liability",
+      "acc_company_id": null,
+      "account_type": "General",
+      "code": "Liability/"
+    }
+  ],
+  "accCompanyFinancialYearList": [
+    {
+      "id": "906002432",
+      "accCompany.id": 373882880,
+      "accFinancialYear.id": 905969664,
+      "status": "Active",
+      "name": "01/04/2023-31/03/2024",
+      "modified_by": "gmda",
+      "modified_group": "campus.gmda",
+      "modified_date": "2023-04-05 13:12:31.424"
+    }
+  ],
+  "allEmployeesCols": [
+    {
+      "id": 403570693,
+      "code": "20003",
+      "doj": "2019-08-19",
+      "phoneNo": "9922233376",
+      "reportingEmployee.id": 403570693,
+      "reportingEmployee.fullName": "Rakesh Kumar Gupta",
+      "emailId": "set@gmail.com",
+      "fullName": "Sh.Rakesh Kumar Gupta",
+      "salutation": "Mr.",
+      "firstName": "Rakesh",
+      "middleName": "Kumar",
+      "lastName": "Gupta",
+      "department.name": "IT",
+      "department.id": "373293069",
+      "designation.name": "Head IT Governance",
+      "designation.id": "403537930",
+      "staffType.name": "Remuneration of experts",
+      "staffType.id": 454066180,
+      "employeeType.id": 373817344,
+      "employeeType.name": "Remuneration of experts",
+      "category.id": 41287680,
+      "category.name": "OBC",
+      "basic": 120000,
+      "gender": "Male",
+      "idCode": "20003",
+      "status": "In Service",
+      "uniqueIdNo": "123456789011",
+      "subEmployeeType.id": "373817345",
+      "subEmployeeType.name": "",
+      "pastOrgDepartment.id": "373293069",
+      "pastOrgDepartment.name": "",
+      "contractExpiryDate": "2050-01-01 00:00:00",
+      "contractRejoinDate": "2023-01-01 00:00:00",
+      "hkrnlSlNo": "11111",
+      "hkrnlEmployeeId": "2345",
+      "jobLocationFromDate": "2019-06-03",
+      "additionalDesignation.id": "402882571",
+      "locationInCity.id": "Haryana"
+    },
+    {
+      "id": 123457890,
+      "code": "Anil",
+      "doj": "2019-08-19",
+      "phoneNo": "1122233376",
+      "reportingEmployee.id": 403570693,
+      "reportingEmployee.fullName": "Rakesh Kumar Gupta",
+      "emailId": "set@gmail.com",
+      "fullName": "Anil Kumar Sharma",
+      "salutation": "Mr.",
+      "firstName": "Anil",
+      "middleName": "Kumar",
+      "lastName": "Sharma",
+      "department.name": "IT",
+      "department.id": "373293069",
+      "designation.name": "IT Engineer",
+      "designation.id": "897024000",
+      "staffType.name": "Deputation",
+      "staffType.id": "454066176",
+      "employeeType.id": "373817345",
+      "employeeType.name": "Deputation",
+      "category.id": 41287680,
+      "category.name": "OBC",
+      "basic": 50000,
+      "gender": "Male",
+      "idCode": "10001",
+      "status": "In Service",
+      "uniqueIdNo": "223344556666",
+      "subEmployeeType.id": "373817345",
+      "subEmployeeType.name": "",
+      "pastOrgDepartment.id": "373293069",
+      "pastOrgDepartment.name": "",
+      "contractExpiryDate": "2050-01-01 00:00:00",
+      "contractRejoinDate": "2023-01-01 00:00:00",
+      "hkrnlSlNo": "",
+      "hkrnlEmployeeId": "",
+      "additionalDesignation.id": "897024000",
+      "jobLocationFromDate": "2023-01-01",
+      "locationInCity.id": "Haryana"
+    },
+    {
+      "id": 513933312,
+      "code": "40337",
+      "doj": "2018-09-10",
+      "phoneNo": "9899958791",
+      "reportingEmployee.id": 403570693,
+      "reportingEmployee.fullName": "Rakesh Kumar Gupta",
+      "emailId": "accountsmtcinfra1.gmda@nic.in",
+      "fullName": "Mr.Jagat Singh",
+      "salutation": "Mr.",
+      "firstName": "Jagat",
+      "middleName": "",
+      "lastName": "Singh",
+      "department.name": "Infrastructure - I",
+      "department.id": 373293060,
+      "designation.name": "Accounts Assistant",
+      "designation.id": 373358592,
+      "staffType.name": "Manpower Outsourced",
+      "staffType.id": 454066177,
+      "employeeType.id": 373817346,
+      "employeeType.name": "Manpower Outsourced",
+      "category.id": 41287680,
+      "category.name": "OBC",
+      "basic": 30000,
+      "gender": "Male",
+      "idCode": "40337",
+      "status": "In Service",
+      "uniqueIdNo": "842568753587",
+      "subEmployeeType.id": null,
+      "subEmployeeType.name": "",
+      "pastOrgDepartment.id": null,
+      "pastOrgDepartment.name": "",
+      "contractExpiryDate": "2050-01-01 00:00:00",
+      "contractRejoinDate": "2023-01-01 00:00:00",
+      "hkrnlSlNo": "",
+      "hkrnlEmployeeId": ""
+    },
+    {
+      "id": 403308555,
+      "code": "40041",
+      "doj": "2020-09-10",
+      "phoneNo": "9971728175",
+      "reportingEmployee.id": 403570693,
+      "reportingEmployee.fullName": "Rakesh Kumar Gupta",
+      "emailId": "shivsum@gmail.com",
+      "fullName": "Mr.SHIV SHANKAR",
+      "salutation": "Mr.",
+      "firstName": "SHIV",
+      "middleName": "SHANKAR",
+      "lastName": "",
+      "department.name": "Urban Planning",
+      "department.id": 373293059,
+      "designation.name": "Accounts Assistant",
+      "designation.id": 373358592,
+      "staffType.name": "Manpower Outsourced",
+      "staffType.id": 454066177,
+      "employeeType.id": 373817346,
+      "employeeType.name": "Manpower Outsourced",
+      "category.id": 41287683,
+      "category.name": "OB",
+      "basic": 25000,
+      "gender": "Male",
+      "idCode": "40041",
+      "status": "In Service",
+      "uniqueIdNo": "745125797541",
+      "subEmployeeType.id": null,
+      "subEmployeeType.name": null,
+      "pastOrgDepartment.id": null,
+      "pastOrgDepartment.name": null,
+      "contractExpiryDate": "2050-01-01 00:00:00",
+      "contractRejoinDate": "2023-01-01 00:00:00",
+      "hkrnlSlNo": null,
+      "hkrnlEmployeeId": null
+    },
+    {
+      "id": 413106183,
+      "code": "40109",
+      "doj": "2018-02-14",
+      "phoneNo": "8930654619",
+      "reportingEmployee.id": 403570693,
+      "reportingEmployee.fullName": "Rakesh Kumar Gupta",
+      "official_mail_id": "jhnmoni@gmail.com",
+      "fullName": "Ms.JYOTI",
+      "salutation": "Mrs.",
+      "firstName": "JYOTI",
+      "middleName": "",
+      "lastName": "",
+      "department.id": 373293060,
+      "department.name": "Infrastructure - I",
+      "designation.id": 402882571,
+      "designation.name": "Programmer",
+      "employeeType.id": 373817346,
+      "employeeType.name": "Manpower Outsourced",
+      "staffType.id": 454066177,
+      "staffType.name": "Manpower Outsourced",
+      "subEmployeeType.id": null,
+      "subEmployeeType.name": "",
+      "pastOrgDepartment.id": null,
+      "pastOrgDepartment.name": "",
+      "status": "In Service",
+      "category_id": 41287680,
+      "basic": 30000,
+      "gender": "Female",
+      "idcode": "",
+      "unique_id_no": "813674741510",
+      "contract_rejoindate": null,
+      "contract_expirydate": null,
+      "hkrnl_sl_no": null,
+      "hkrnl_emp_id": null
+    },
+    {
+      "id": 403308553,
+      "code": "40039",
+      "doj": "2017-09-10",
+      "phoneNo": "9891954480",
+      "reportingEmployee.id": 403570693,
+      "reportingEmployee.fullName": "Rakesh Kumar Gupta",
+      "emailId": "divyachhokar89@gmail.com",
+      "fullName": "Mrs.Divya Rani",
+      "salutation": "Mrs.",
+      "firstName": "Divya",
+      "middleName": "Rani",
+      "lastName": "",
+      "department.name": "Infrastructure - II",
+      "department.id": 373293061,
+      "designation.name": "Accounts Assistant",
+      "designation.id": 373358592,
+      "staffType.name": "Manpower Outsourced",
+      "staffType.id": 454066177,
+      "employeeType.id": 373817346,
+      "employeeType.name": "Manpower Outsourced",
+      "category.id": 41287683,
+      "category.name": "OB",
+      "basic": 30000,
+      "gender": "Female",
+      "idCode": "40039",
+      "status": "In Service",
+      "uniqueIdNo": "748358336885",
+      "subEmployeeType.id": null,
+      "subEmployeeType.name": null,
+      "pastOrgDepartment.id": null,
+      "pastOrgDepartment.name": null,
+      "contractExpiryDate": "2050-01-01 00:00:00",
+      "contractRejoinDate": "2023-01-01 00:00:00",
+      "hkrnlSlNo": null,
+      "hkrnlEmployeeId": null
+    },
+    {
+      "id": 504332290,
+      "code": "40282",
+      "doj": "2018-08-20",
+      "phoneNo": "9643342451",
+      "reportingEmployee.id": 403570693,
+      "reportingEmployee.fullName": "Rakesh Kumar Gupta",
+      "emailId": "nimishhada@gmail.com",
+      "fullName": "Mr.Nimish",
+      "salutation": "Mr.",
+      "firstName": "Nimish",
+      "middleName": "",
+      "lastName": "",
+      "department.name": "Finance & Accounts",
+      "department.id": 403472387,
+      "designation.name": "Accounts Assistant",
+      "designation.id": 373358592,
+      "staffType.name": "Manpower Outsourced",
+      "staffType.id": 454066177,
+      "employeeType.id": 373817346,
+      "employeeType.name": "Manpower Outsourced",
+      "category.id": 41287683,
+      "basic": 25000,
+      "category.name": "OB",
+      "gender": "Male",
+      "idCode": "40282",
+      "status": "In Service",
+      "uniqueIdNo": "851404044958",
+      "subEmployeeType.id": null,
+      "subEmployeeType.name": null,
+      "pastOrgDepartment.id": null,
+      "pastOrgDepartment.name": null,
+      "contractExpiryDate": "2050-01-01 00:00:00",
+      "contractRejoinDate": "2023-01-01 00:00:00",
+      "hkrnlSlNo": null,
+      "hkrnlEmployeeId": null
+    },
+    {
+      "id": 413106181,
+      "code": "40107",
+      "doj": "2018-02-14",
+      "phoneNo": "9643510096",
+      "reportingEmployee.id": 403570693,
+      "reportingEmployee.fullName": "Rakesh Kumar Gupta",
+      "emailId": "neetu29k@gmail.com",
+      "fullName": "Ms.Neetu Khatana",
+      "salutation": "Mrs.",
+      "firstName": "Neetu",
+      "middleName": "Khatana",
+      "lastName": "",
+      "department.name": "IT",
+      "department.id": 373293069,
+      "designation.name": "IT",
+      "designation.id": 402882571,
+      "staffType.name": "Programmer",
+      "staffType.id": 454066177,
+      "employeeType.id": 373817346,
+      "employeeType.name": "Manpower Outsourced",
+      "category.id": 41287683,
+      "category.name": "OB",
+      "basic": 30000,
+      "gender": "Female",
+      "idCode": "40282",
+      "status": "In Service",
+      "uniqueIdNo": "733264486571",
+      "subEmployeeType.id": null,
+      "subEmployeeType.name": null,
+      "pastOrgDepartment.id": null,
+      "pastOrgDepartment.name": null,
+      "contractExpiryDate": "2050-01-01 00:00:00",
+      "contractRejoinDate": "2023-01-01 00:00:00",
+      "hkrnlSlNo": null,
+      "hkrnlEmployeeId": null
+    },
+    {
+      "id": 403570705,
+      "code": "20017",
+      "doj": "2017-12-28",
+      "phoneNo": "9416256000",
+      "reportingEmployee.id": 403570705,
+      "reportingEmployee.fullName": "Sh.Surender Dutt Gautam",
+      "emailId": "cao.gmda@gov.in",
+      "fullName": "Sh.Surender Dutt Gautam",
+      "salutation": "Mr.",
+      "firstName": "Surender",
+      "middleName": "Dutt",
+      "lastName": "Gautam",
+      "department.name": "Finance & Accounts",
+      "department.id": 403472387,
+      "designation.name": "Chief Account Officer",
+      "designation.id": 403537938,
+      "staffType.name": "Remuneration of experts",
+      "staffType.id": 454066180,
+      "employeeType.id": 373817344,
+      "employeeType.name": "Remuneration of experts",
+      "category.id": 41287680,
+      "category.name": "OB",
+      "basic": 80000,
+      "gender": "Male",
+      "idCode": "20017",
+      "status": "In Service",
+      "uniqueIdNo": "783498399307",
+      "subEmployeeType.id": 709951489,
+      "subEmployeeType.name": "Expert Retd",
+      "pastOrgDepartment.id": null,
+      "pastOrgDepartment.name": null,
+      "contractExpiryDate": "2022-09-30 00:00:00",
+      "contractRejoinDate": "2022-04-01 00:00:00",
+      "hkrnlSlNo": null,
+      "hkrnlEmployeeId": null
+    },
+    {
+      "id": 422281216,
+      "code": "40131",
+      "doj": "2018-02-27",
+      "phoneNo": "9717194510",
+      "reportingEmployee.id": 403570693,
+      "reportingEmployee.fullName": "Rakesh Kumar Gupta",
+      "emailId": "shruti061982@gmail.com",
+      "fullName": "Ms.Shruti Saxena",
+      "salutation": "Mrs.",
+      "firstName": "Shruti",
+      "middleName": "",
+      "lastName": "Saxena",
+      "department.name": "IT",
+      "department.id": 373293069,
+      "designation.name": "Programmer",
+      "designation.id": 402882571,
+      "staffType.name": "Manpower Outsourced",
+      "staffType.id": 454066177,
+      "employeeType.id": 373817346,
+      "employeeType.name": "Manpower Outsourced",
+      "category.id": 41287680,
+      "category.name": "OB",
+      "basic": 35000,
+      "gender": "Female",
+      "idCode": "40131",
+      "status": "In Service",
+      "uniqueIdNo": "910297788330",
+      "subEmployeeType.id": null,
+      "subEmployeeType.name": null,
+      "pastOrgDepartment.id": null,
+      "pastOrgDepartment.name": null,
+      "contractExpiryDate": "2022-09-30 00:00:00",
+      "contractRejoinDate": "2022-04-01 00:00:00",
+      "hkrnlSlNo": null,
+      "hkrnlEmployeeId": null
+    },
+    {
+      "id": 506265634,
+      "code": "40323",
+      "doj": "2019-02-27",
+      "phoneNo": "7830484020",
+      "reportingEmployee.id": 403570693,
+      "reportingEmployee.fullName": "Rakesh Kumar Gupta",
+      "emailId": "parassinghtomar2@gmail.com",
+      "fullName": "Mr.Paras Tomar",
+      "salutation": "Mr.",
+      "firstName": "Paras",
+      "middleName": "",
+      "lastName": "Tomar",
+      "department.name": "DTP Enforcement",
+      "department.id": 520224768,
+      "designation.name": "Accounts Assistant",
+      "designation.id": 373358592,
+      "staffType.name": "Manpower Outsourced",
+      "staffType.id": 454066177,
+      "employeeType.id": 373817346,
+      "employeeType.name": "Manpower Outsourced",
+      "category.id": 41287680,
+      "category.name": "OB",
+      "basic": 30000,
+      "gender": "Male",
+      "idCode": "40006",
+      "status": "In Service",
+      "uniqueIdNo": "941383120081",
+      "subEmployeeType.id": null,
+      "subEmployeeType.name": null,
+      "pastOrgDepartment.id": null,
+      "pastOrgDepartment.name": null,
+      "contractExpiryDate": "2022-09-30 00:00:00",
+      "contractRejoinDate": "2022-04-01 00:00:00",
+      "hkrnlSlNo": null,
+      "hkrnlEmployeeId": null
+    }
+  ],
+  "establishmentDocument": [
+    {
+      "id": 507183104,
+      "documentType": "Establishment Document",
+      "modified_by": "gmda",
+      "modified_group": "campus.gmda",
+      "modified_date": "2018-08-19 16:01:05.479",
+      "description": "",
+      "docNo": "",
+      "status": "Not Submitted",
+      "docName": "Experience Letter1"
+    },
+    {
+      "id": 626851840,
+      "docType": "Establishment Document",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2019-09-19 16:29:05.479",
+      "description": "",
+      "docNo": "",
+      "status": "Not Submitted",
+      "docName": "Pan Card"
+    },
+    {
+      "id": 626851841,
+      "docType": "Establishment Document",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2019-09-19 16:29:40.965",
+      "description": "",
+      "docNo": "",
+      "status": "Not Submitted",
+      "docName": "Aadhar Card"
+    },
+    {
+      "id": 626851842,
+      "docType": "Establishment Document",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2019-09-19 16:29:50.114",
+      "description": "",
+      "docNo": "",
+      "status": "Not Submitted",
+      "docName": "Bank Details"
+    },
+    {
+      "id": 626851843,
+      "docType": "Establishment Document",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2019-09-19 16:29:57.466",
+      "description": "",
+      "docNo": "",
+      "status": "Not Submitted",
+      "docName": "Office Order"
+    },
+    {
+      "id": 714637312,
+      "docType": "Establishment Document",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2020-10-07 18:36:16.656",
+      "description": "",
+      "docNo": "",
+      "status": "Not Submitted",
+      "docName": "Qualification"
+    },
+    {
+      "id": 714637313,
+      "docType": "Establishment Document",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2020-10-07 18:38:05.893",
+      "description": "",
+      "docNo": "",
+      "status": "Not Submitted",
+      "docName": "Police verification"
+    },
+    {
+      "id": 714637314,
+      "docType": "Establishment Document",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2020-10-07 18:38:18.984",
+      "description": "",
+      "docNo": "",
+      "status": "Not Submitted",
+      "docName": "Medical Certificate"
+    },
+    {
+      "id": 714637315,
+      "docType": "Establishment Document",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2020-10-07 18:38:28.793",
+      "description": "",
+      "docNo": "",
+      "status": "Not Submitted",
+      "docName": "Driving Licence"
+    },
+    {
+      "id": 827523072,
+      "docType": "Establishment Document",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-17 11:15:31.299",
+      "description": "Resident Certificate issued by the Local Authority",
+      "docNo": "",
+      "status": "Not Submitted",
+      "docName": "Resident Certificate"
+    },
+    {
+      "id": 827523073,
+      "docType": "Establishment Document",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-17 12:40:56.498",
+      "description": "Character Certifcate",
+      "docNo": "",
+      "status": "Not Submitted",
+      "docName": "Character Certificate"
+    },
+    {
+      "id": 829030400,
+      "docType": "Establishment Document",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-23 12:08:59.541",
+      "description": "Voter Identification",
+      "docNo": "",
+      "status": "Not Submitted",
+      "docName": "Voter ID"
+    }
+  ],
+  "salutationDropdownList": [
+    {
+      "value": 123456890,
+      "label": "Mr."
+    },
+    {
+      "value": 123450969,
+      "label": "Ms."
+    },
+    {
+      "value": 123467456,
+      "label": "Mrs."
+    }
+  ],
+  "departmentCols": [
+    {
+      "id": 520224768,
+      "code": "DPT029",
+      "email": "set@gmail.com",
+      "institution.id": 347275265,
+      "name": "DTP Enforcement",
+      "description": "DTP Enforcement",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-23 12:08:59.541"
+    },
+    {
+      "id": 403472387,
+      "code": "DPT018",
+      "email": "set@gmail.com",
+      "institution.id": 347275265,
+      "name": "Finance & Accounts",
+      "description": "Finance & Accounts",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-23 12:08:59.541"
+    },
+    {
+      "id": 373293069,
+      "code": "DPT014",
+      "email": "set@gmail.com",
+      "institution.id": 347275265,
+      "name": "IT",
+      "description": "IT Division",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-23 12:08:59.541"
+    },
+    {
+      "id": 373293067,
+      "code": "DPT012",
+      "email": "set@gmail.com",
+      "institution.id": 347275265,
+      "name": "Admin",
+      "description": "Admin",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-23 12:08:59.541"
+    },
+    {
+      "id": 373293061,
+      "code": "DPT006",
+      "email": "set@gmail.com",
+      "institution.id": 347275265,
+      "name": "Infrastructure - II",
+      "description": "Infrastructure - II",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-23 12:08:59.541"
+    },
+    {
+      "id": 373293060,
+      "code": "DPT005",
+      "email": "set@gmail.com",
+      "institution.id": 347275265,
+      "name": "Infrastructure - I",
+      "description": "Infrastructure - I",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-23 12:08:59.541"
+    },
+    {
+      "id": 373293059,
+      "code": "DPT004",
+      "email": "set@gmail.com",
+      "institution.id": 347275265,
+      "name": "Urban Planning",
+      "description": "Urban Planning",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-23 12:08:59.541"
+    }
+  ],
+  "employeeTypeList": [
+    {
+      "id": 373817344,
+      "code": "2",
+      "name": "Remuneration of experts",
+      "description": "Remuneration of experts",
+      "wage_period": "",
+      "daily_wage": "",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-23 12:08:59.541"
+    },
+    {
+      "id": 373817345,
+      "code": "3",
+      "name": "Deputation",
+      "description": "Deputation",
+      "wage_period": "",
+      "daily_wage": "",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-23 12:08:59.541"
+    },
+    {
+      "code": "4",
+      "name": "Manpower Outsourced",
+      "description": "Manpower Outsourced",
+      "id": 373817346,
+      "wage_period": "",
+      "daily_wage": "",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-23 12:08:59.541"
+    },
+    {
+      "code": "5",
+      "name": "Contractual",
+      "description": "Contractual Employee type",
+      "id": 418578432,
+      "wage_period": "",
+      "daily_wage": "",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2022-02-23 12:08:59.541"
+    }
+  ],
+  "staffTypeList": [
+    {
+      "id": 454066180,
+      "code": "Remuneration of experts",
+      "name": "Remuneration of experts",
+      "retirementAge": 60,
+      "description": "Remuneration of experts",
+      "modified_by": "gmda",
+      "modified_group": "campus.gmda",
+      "modified_date": "2018-04-01"
+    },
+    {
+      "id": 454066176,
+      "code": "Deputation",
+      "name": "Deputation",
+      "retirementAge": 60,
+      "description": "Deputation Staff",
+      "modified_by": "gmda",
+      "modified_group": "campus.gmda",
+      "modified_date": "2018-04-01"
+    },
+    {
+      "id": 454066177,
+      "code": "Manpower Outsourced",
+      "name": "Manpower Outsourced",
+      "retirementAge": 60,
+      "description": "Manpower Outsourced",
+      "modified_by": "gmda",
+      "modified_group": "campus.gmda",
+      "modified_date": "2018-04-01"
+    },
+    {
+      "code": "Contractual GIS",
+      "name": "Contractual GIS",
+      "retirementAge": "60",
+      "description": "GIS",
+      "id": 454066178,
+      "modified_by": "gmda",
+      "modified_group": "campus.gmda",
+      "modified_date": "2018-04-01"
+    }
+  ],
+  "designationList": [
+    {
+      "id": 373358592,
+      "staffType.id": "454066177",
+      "code": "DSG001",
+      "name": "Accounts Assistant",
+      "level": "5",
+      "description": "Accounts Assistant",
+      "modified_by": "gmda",
+      "modified_group": "campus.gmda",
+      "modified_date": "2018-04-01"
+    },
+    {
+      "id": 402882571,
+      "staffType.id": "454066177",
+      "code": "DSG036",
+      "name": "Programmer",
+      "level": "4",
+      "description": "Programmer",
+      "modified_by": "gmda",
+      "modified_group": "campus.gmda",
+      "modified_date": "2018-04-01"
+    },
+    {
+      "id": 897024000,
+      "code": "DSG177",
+      "staffType.id": 454066176,
+      "name": "IT Engineer",
+      "description": "IT Engineer Contractual",
+      "level": 2,
+      "modified_by": "gmda",
+      "modified_group": "campus.gmda",
+      "modified_date": "2018-04-01"
+    },
+    {
+      "id": 403537930,
+      "code": "DSG077",
+      "staffType.id": 454066177,
+      "name": "Head IT Governance",
+      "description": "Head IT Governance",
+      "level": 1,
+      "modified_by": "gmda",
+      "modified_group": "campus.gmda",
+      "modified_date": "2018-04-01"
+    },
+    {
+      "id": 403537938,
+      "staffType.id": "454066177",
+      "code": "DSG085",
+      "name": "Chief Account Officer",
+      "level": "3",
+      "description": "Chief Account Officer",
+      "modified_by": "gmda",
+      "modified_group": "campus.gmda",
+      "modified_date": "2018-04-01"
+    }
+  ],
+  "subEmpTypeList": [
+    {
+      "id": 724402176,
+      "employeeType.id": 373817345,
+      "code": "9",
+      "name": "Additional Charge",
+      "description": "Additional Charge",
+      "wage_period": 0,
+      "daily_wage": 0
+    },
+    {
+      "code": "SDT06",
+      "employeeType.id": "129707901",
+      "name": "Sub Contractual GIS",
+      "description": "Sub Contractual GIS edited",
+      "id": 724402177
+    }
+  ],
+  "pastOrgDepartmentList": [
+    {
+      "id": 710017027,
+      "name": "ULB Dept",
+      "description": "ULB Dept Edited",
+      "institution.id": "347275265",
+      "code": "PODEPT00004",
+      "email": "set@gmail.com",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2020-09-21 15:22:39.662"
+    },
+    {
+      "institution.id": "347275265",
+      "code": "PDT06",
+      "name": "Extra department",
+      "email": "sharma199621@gmail.com",
+      "description": "Extra department",
+      "id": 710017028
+    }
+  ],
+  "institutionDropdownList": [
+    {
+      "id": 347275265,
+      "code": "GMDA",
+      "name": "Gurugram Metropolitan Development Authority",
+      "description": "Gurugram Metropolitan Development Authority",
+      "established": "2024-01-01 00:00:00",
+      "remarks": "",
+      "modified_by": "Anil",
+      "modified_group": "campus.gmda",
+      "modified_date": "2023-06-05 12:55:40.633"
+    }
+  ],
+  "qualificationTypeList": [
+    {
+      "id": 12345432,
+      "code": "B.Sc.",
+      "name": "B.Sc.",
+      "type": "Graduate",
+      "isEngineering": "on"
+    },
+    {
+      "code": "BTech",
+      "name": "B. Tech.",
+      "id": 12345433,
+      "type": "Graduate",
+      "isEngineering": "on"
+    },
+    {
+      "code": "Mtech",
+      "name": "Mtech",
+      "type": "Post Graduate",
+      "isEngineering": "on",
+      "id": 12345434
+    }
+  ],
+  "locationInCityList": [
+    {
+      "id": 735739905,
+      "city.id": 137887746,
+      "code": "Sec- 44",
+      "name": "Plot No. 3, Sector 44, Gurugram, Haryana 122003"
+    },
+    {
+      "id": 735739906,
+      "city.id": 137887746,
+      "code": "Devi Lal Stadium",
+      "name": "Devi Lal Stadium, Medicity, Islampur Colony, Sector 38, Gurugram, Haryana 122018"
+    },
+    {
+      "id": 735739907,
+      "city.id": 137887746,
+      "code": "Sector 15 Part 1 Gurgaon",
+      "name": "HUDA Rest House Sector 15 Part 1, Sector 15, Gurugram, Haryana 122001 Anil"
+    },
+    {
+      "id": 735739908,
+      "city.id": 137887746,
+      "code": "GMDA UED DFO-cum-Metropolitan Green Planner",
+      "name": "Tau Devi Lal Biological annd Botanical Garden, Sector-52, Gurgaon-122002"
+    }
+  ],
+  "cityList": [
+    {
+      "id": 137887746,
+      "state.id": 6553601,
+      "code": "Gurgaon",
+      "name": "Gurgaon"
+    }
+  ],
+  "stateList": [
+    {
+      "id": 6553601,
+      "code": "Haryana",
+      "country.id": 3244032,
+      "name": "Haryana"
+    },
+    {
+      "code": "Bihar",
+      "name": "Bihar",
+      "id": 6553602,
+      "country.id": "3244032"
+    },
+    {
+      "code": "Gujrat",
+      "name": "Gujrat",
+      "id": 6553603,
+      "country.id": 3244035
+    },
+    {
+      "code": "Purnia",
+      "name": "Purnia",
+      "country.id": "3244035",
+      "id": 6553604
+    }
+  ],
+  "countryList": [
+    {
+      "id": 3244032,
+      "code": "India",
+      "name": "India"
+    },
+    {
+      "id": 3244033,
+      "code": "Others",
+      "name": "Others"
+    },
+    {
+      "code": "America",
+      "name": "America",
+      "id": 3244035
+    },
+    {
+      "code": "Nepal",
+      "name": "Nepal edited12",
+      "id": 3244036
+    }
+  ]
+}

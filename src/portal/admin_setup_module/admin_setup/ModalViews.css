@@ -1,0 +1,12 @@
+.custom-modal .modal-dialog {
+    position: fixed;
+    margin: 0;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    width: 300px; /* Adjust as needed for modal width */
+}
+
+.custom-modal .modal-content {
+    border-radius: 5px;
+}
