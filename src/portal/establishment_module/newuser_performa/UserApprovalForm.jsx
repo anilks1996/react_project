@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams, useNavigate} from 'react-router-dom';
 import { Button, Card, CardBody, CardFooter, CardHeader, Table} from 'reactstrap';
 import { showEmployeeType } from '../establishment_redux/slices/establishment_slice/employeeTypeSlice';
-import { showBanks } from '../establishment_redux/slices/establishment_slice/institutionSlice';
+import { findAllInstitutions, showBanks } from '../establishment_redux/slices/establishment_slice/institutionSlice';
 import { showDesignation } from '../establishment_redux/slices/establishment_slice/designationSlice';
 import { showEmployeePopup } from '../establishment_redux/slices/establishment_slice/employeeSetupSlice';
 import { showDepartment } from '../establishment_redux/slices/establishment_slice/departmentSlice';
@@ -16,6 +16,9 @@ import Stack from '@mui/material/Stack';
 import AlertTitle from '@mui/material/AlertTitle';
 import { createEmployeeByUserRegister, showUserRegisterById, updateUserDetailRegister } from '../establishment_redux/slices/user_performa/UserRegisterSlice';
 import BASE_URL from '../../../serviceUrl/AxiosURL';
+import { showStaffType } from '../establishment_redux/slices/establishment_slice/staffTypeSlice';
+import "react-toastify/dist/ReactToastify.css";
+import {ToastContainer, toast } from 'react-toastify';
 
 
 const UserApprovalForm = () => {
@@ -25,8 +28,10 @@ const UserApprovalForm = () => {
     const {designations} = useSelector((state)=>state.allstorereducer.desgn);
     const {employeeTypes} = useSelector((state)=>state.allstorereducer.empt);
     const {employeeSelection,employeeById} = useSelector((state)=>state.allstorereducer.employeeData);
+    const {institutions} = useSelector((state)=>state.allstorereducer.org);
     const {banks} = useSelector((state)=>state.allstorereducer.org);
     const {departments} = useSelector((state)=>state.allstorereducer.dept);
+    const {staffTypes} = useSelector((state)=>state.allstorereducer.stafft);
     const {updatedUser,createEmployee,userRegister,createLoading} = useSelector((state)=>state.allstorereducer.userRegister);
     const [dateofBirth,setDateofBirth] = useState();
     const [joinDate,setJoinDate] = useState();
@@ -39,9 +44,24 @@ const UserApprovalForm = () => {
     const [department,setDepartment] = useState(null);
     const [designation,setDesignation] = useState(null);
     const [employeeType,setEmployeeType] = useState(null);
+    const [staffType,setStaffType] = useState(null);
     const [isAction,setIsAction] = useState(false);
     const [genderValue,setGenderValue] = useState();
 
+    const [nameEmpty,setNameEmpty] = useState(false);
+    const [salEmpty,setSalEmpty] = useState(false);
+    const [companyEmpty,setCompanyEmpty] = useState(false);
+    const [genderEmpty,setGenderEmpty] = useState(false);
+    const [adharEmpty,setAdharEmpty] = useState(false);
+    const [deptEmpty,setDeptEmpty] = useState(false);
+    const [desgEmpty,setDesgEmpty] = useState(false);
+    const [empTypeEmpty,setEmpTypeEmpty] = useState(false);
+    const [staffEmpty,setStaffEmpty] = useState(false);
+    const [emailEmpty,setEmailEmpty] = useState(false);
+    const [phoneEmpty,setPhoneEmpty] = useState(false);
+    const [flag,setFlag]=useState(false);
+    const [dobEmpty,setDobEmpty] = useState(false);
+    const [remarkEmpty,setRemarkEmpty] = useState(false);
 
     useEffect(()=>{
       window.scrollTo({top:'0', left:'0', behavior:'smooth'});     
@@ -52,6 +72,8 @@ const UserApprovalForm = () => {
       dispatch(showEmployeePopup());
       dispatch(showEmployeeType());
       dispatch(showDepartment());
+      dispatch(findAllInstitutions());
+      dispatch(showStaffType());
       //setUpdateUserRegister(userRegister);
       //setDateofBirth();
 
@@ -91,42 +113,34 @@ const UserApprovalForm = () => {
                 }
               }
 
-
-
       //       }					
       //       console.log('Arrays : '+result);
       //   }catch(error){
       //     console.log(error);
       //   }
       // }
-
-           
-      
-      if(result && result.dob){
-        setDateofBirth(getFormattedDate(new Date(result.dob)));
-      }if(result && result.rejoiningDate){
-        setRejoiningDate(getFormattedDate(new Date(result.rejoiningDate)));
-      }if(result && result.joinDate){
-        setJoinDate(getFormattedDate(new Date(result.joinDate)));
-      }if(result && result.contactTenureExpiryDate){
-        setContactTenureExpiryDate(getFormattedDate(new Date(result.contactTenureExpiryDate)));
-      }if(result && result.bankDto && result.bankDto.id){
-        setBank(result.bankDto.id);
-      }if(result && result.superVisorNameDto && result.superVisorNameDto.id){
-        setSuperVisorName(result.superVisorNameDto.id);
-      }if(result && result.departmentDto && result.departmentDto.id){
-        setDepartment(result.departmentDto.id);
-      }if(result && result.designationDto && result.designationDto.id){
-        setDesignation(result.designationDto.id);
-      }if(result && result.employeeTypeDto && result.employeeTypeDto.id){
-        setEmployeeType(result.employeeTypeDto.id);
-      }if(result && result.gender){
-        setGenderValue(result.gender);
-      }else if(result && result.gender==null){
-        setGenderValue("Male");
-      } 
-      alert("bank "+employeeType);
-      
+                
+        if(result && result.dob){
+          setDateofBirth(getFormattedDate(new Date(result.dob)));
+        }if(result && result.rejoiningDate){
+          setRejoiningDate(getFormattedDate(new Date(result.rejoiningDate)));
+        }if(result && result.joinDate){
+          setJoinDate(getFormattedDate(new Date(result.joinDate)));
+        }if(result && result.contactTenureExpiryDate){
+          setContactTenureExpiryDate(getFormattedDate(new Date(result.contactTenureExpiryDate)));
+        }if(result && result.bankDto && result.bankDto.id){
+          setBank(result.bankDto.id);
+        }if(result && result.superVisorNameDto && result.superVisorNameDto.id){
+          setSuperVisorName(result.superVisorNameDto.id);
+        }if(result && result.departmentDto && result.departmentDto.id){
+          setDepartment(result.departmentDto.id);
+        }if(result && result.designationDto && result.designationDto.id){
+          setDesignation(result.designationDto.id);
+        }if(result && result.employeeTypeDto && result.employeeTypeDto.id){
+          setEmployeeType(result.employeeTypeDto.id);
+        }if(result && result.gender){
+          setGenderValue(result.gender);
+        }     
       }					
       console.log('Arrays : '+result);
     }catch(error){
@@ -148,8 +162,21 @@ const UserApprovalForm = () => {
     }
     const handleChange=(e)=>{
       if(e.target.name==='dob'){
+        setDobEmpty(false);
         setDateofBirth(e.target.value);
         setUpdateUserRegister({...updateUserRegister, [e.target.name]:e.target.value})
+      }else if(e.target.name==='name'){
+        setNameEmpty(false);
+        setUpdateUserRegister({...updateUserRegister, ["name"]:e.target.value})
+      }else if(e.target.name==='aadharNo'){
+        setAdharEmpty(false);
+        setUpdateUserRegister({...updateUserRegister, ["aadharNo"]:e.target.value})
+      }else if(e.target.name==='emailId'){
+        setEmailEmpty(false);
+        setUpdateUserRegister({...updateUserRegister, ["emailId"]:e.target.value})
+      }else if(e.target.name==='contactNo'){
+        setPhoneEmpty(false);
+        setUpdateUserRegister({...updateUserRegister, ["contactNo"]:e.target.value})
       }else if(e.target.name==='contactTenureExpiryDate'){
         setContactTenureExpiryDate(e.target.value);
         setUpdateUserRegister({...updateUserRegister, [e.target.name]:e.target.value})
@@ -167,16 +194,31 @@ const UserApprovalForm = () => {
       }else if(e.target.name==="superVisorNameDto.id"){
         setSuperVisorName(e.target.value);
       }else if(e.target.name==="departmentDto.id"){
+        setDeptEmpty(false);
         setDepartment(e.target.value);
         setUpdateUserRegister({...updateUserRegister, ['departmentDto']:{'id':e.target.value,'code':'SBI'}})
       }else if(e.target.name==="designationDto.id"){
+        setDesgEmpty(false);
         setDesignation(e.target.value);
         setUpdateUserRegister({...updateUserRegister, ['designationDto']:{'id':e.target.value,'code':'SBI'}})
       }else if(e.target.name==="employeeTypeDto.id"){
+        setEmpTypeEmpty(false);
         setEmployeeType(e.target.value);
         setUpdateUserRegister({...updateUserRegister, ['employeeTypeDto']:{'id':e.target.value,'code':'SBI'}})
+      }else if(e.target.name==="staffTypeDto.id"){
+        setStaffEmpty(false);
+        setStaffType(e.target.value);
+        setUpdateUserRegister({...updateUserRegister, ['staffTypeDto']:{'id':e.target.value,'code':'SBI'}})
       }else if(e.target.name==='gender'){
+        setGenderEmpty(false);
         setGenderValue(e.target.value);
+        setUpdateUserRegister({...updateUserRegister, ['gender']:e.target.value})
+      }else if(e.target.name==='joiningInstitutionDto.id'){
+        setCompanyEmpty(false);
+        setUpdateUserRegister({...updateUserRegister, ['joiningInstitutionDto']:{"id":e.target.value,"code":"sbi"}})
+      }else if(e.target.name==='remarks'){
+        setRemarkEmpty(false);
+        setUpdateUserRegister({...updateUserRegister, ['remarks']:e.target.value})
       }else{
         setUpdateUserRegister({...updateUserRegister, [e.target.name]:e.target.value})
       }
@@ -191,11 +233,16 @@ const UserApprovalForm = () => {
 
     const handleSubmit=(actionN)=>{
       if(actionN==='approve'){
+        if(validateFormData(updateUserRegister)){
+          //go ahead
+        }else{
+            return false;
+        }
         if(id!=undefined && employeeType!=null && genderValue!=null){
           alert(updateUserRegister);
           setIsAction(true);
           const userObj = {...updateUserRegister,
-                          ["gender"]:genderValue!=undefined? genderValue:"Male",
+                          ["ifscCode"]:"ABCD00001",
                         };
           dispatch(createEmployeeByUserRegister(userObj));
         }else{
@@ -203,15 +250,61 @@ const UserApprovalForm = () => {
         }
       }
       if(actionN==='reject'){
-        alert('Hello '+actionN)
+        //alert('Hello '+actionN)
+        if(updateUserRegister.remarks===undefined || updateUserRegister.remarks===''){
+          setRemarkEmpty(true); setFlag(false);
+        }
       }
       if(actionN==='update'){
-        alert('Hello '+actionN)
+        //alert('Hello '+actionN)
+        if(validateFormData(updateUserRegister)){
+          //go ahead
+        }else{
+            return false;
+        }
         dispatch(updateUserDetailRegister(updateUserRegister));
         if(updatedUser){
           navigatePage("/newUserPerforma/newEmployeeList")
         }
       }
+    }
+
+    const validateFormData=(employeeObj)=>{
+      if(updateUserRegister!=undefined){
+          setFlag(true);
+          if(updateUserRegister.name===undefined || updateUserRegister.name===''){
+              setNameEmpty(true); setFlag(false);
+          // }if(updateUserRegister.firstName===undefined || updateUserRegister.firstName===''){
+          //     setNameEmpty(true); setFlag(false);
+          }if(updateUserRegister.aadharNo===undefined || updateUserRegister.aadharNo===''){
+              setAdharEmpty(true); setFlag(false);
+          }if(updateUserRegister.gender==-1 || employeeObj.gender===undefined){
+              setGenderEmpty(true); setFlag(false);
+          }if(updateUserRegister.contactNo==='' || updateUserRegister.contactNo===undefined){
+              setPhoneEmpty(true); setFlag(false);
+          }if(updateUserRegister.emailId==='' || updateUserRegister.emailId===undefined){
+              setEmailEmpty(true); setFlag(false);
+          }if(updateUserRegister.joiningInstitutionDto==null || updateUserRegister.joiningInstitutionDto===undefined || updateUserRegister.joiningInstitutionDto.id===undefined || updateUserRegister.joiningInstitutionDto.id==-1){
+                setCompanyEmpty(true); setFlag(false);
+          }if(updateUserRegister.departmentDto===undefined || updateUserRegister.departmentDto.id==-1 || updateUserRegister.departmentDto.id===undefined){
+              setDeptEmpty(true); setFlag(false);
+          }if(updateUserRegister.designationDto===undefined || updateUserRegister.designationDto.id===undefined || updateUserRegister.designationDto.id==-1){
+              setDesgEmpty(true); setFlag(false);
+          }if(updateUserRegister.employeeTypeDto===undefined || updateUserRegister.employeeTypeDto.id==-1 || updateUserRegister.employeeTypeDto.id===undefined){
+              setEmpTypeEmpty(true); setFlag(false);
+          }if(updateUserRegister.staffTypeDto==null || updateUserRegister.staffTypeDto===undefined || updateUserRegister.staffTypeDto.id==-1 || updateUserRegister.staffTypeDto.id===undefined){
+              setStaffEmpty(true); setFlag(false);
+          }if(updateUserRegister.remarks==null || updateUserRegister.remarks===undefined || updateUserRegister.remarks===''){
+              setRemarkEmpty(true); setFlag(false);
+          }
+          return flag;
+      }else{
+          toast.error("Kindly fill form correctly !!", {
+              position: toast.POSITION.TOP_CENTER,
+              autoClose: 3000,
+          });
+          return false;
+      }        
     }
 
   return (
@@ -264,8 +357,13 @@ const UserApprovalForm = () => {
                       <tbody id='userformId'>               
                         <tr>
                           <td>
-                            <label>Employee Name:</label>
+                            <label>Employee Name <b style={{color:'red'}}>*</b>:</label>
                             <input type='text' name='name' className='form-control' onChange={handleChange} value={updateUserRegister && updateUserRegister.name} />
+                            {
+                              nameEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Employee Name can't be empty!</i>
+                              :
+                              <></>
+                            }
                           </td>
                           <td>
                             <label>Father Name:</label>
@@ -281,22 +379,42 @@ const UserApprovalForm = () => {
                           </td>
                         </tr>
                         <tr>                          
-                          <td><label>Email Id:</label>
+                          <td><label>Email Id <b style={{color:'red'}}>*</b>:</label>
                             <input type='text' name='emailId' className='form-control' onChange={handleChange} value={updateUserRegister && updateUserRegister.emailId} />
+                            {
+                              emailEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Please enter proper Email Id !</i>
+                              :
+                              <></>
+                            }
                           </td>
-                          <td><label>Date of Birth:</label>
+                          <td><label>Date of Birth <b style={{color:'red'}}>*</b>:</label>
                             <input type='date' name='dob' className='form-control' onChange={handleChange} value={dateofBirth} />
+                            {
+                              dobEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Date of birth can't be empty!</i>
+                              :
+                              <></>
+                            }
                           </td>
-                          <td><label>Contach No:</label>
+                          <td><label>Contach No <b style={{color:'red'}}>*</b>:</label>
                             <input type='text' name='contactNo' className='form-control' onChange={handleChange} value={updateUserRegister && updateUserRegister.contactNo} />
+                            {
+                              phoneEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Contact No can't be empty!</i>
+                              :
+                              <></>
+                            }
                           </td>
                           <td><label>Pan No:</label>
                             <input type='text' name='panNo' className='form-control' onChange={handleChange} value={updateUserRegister && updateUserRegister.panNo} />
                           </td>
                         </tr>
                         <tr>
-                          <td><label>Aadhar No:</label>
+                          <td><label>Aadhar No <b style={{color:'red'}}>*</b>:</label>
                             <input type='text' name='aadharNo' className='form-control' onChange={handleChange} value={updateUserRegister && updateUserRegister.aadharNo} />
+                            {
+                              adharEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Aadhar No can't be empty!</i>
+                              :
+                              <></>
+                            }
                           </td>
                           <td><label>Contract Tenure Expiry Date:</label>
                             <input type='date' name='contactTenureExpiryDate' className='form-control' onChange={handleChange} value={contactTenureExpiryDate} />
@@ -330,7 +448,7 @@ const UserApprovalForm = () => {
                           </td>
                         </tr>
                         <tr>
-                          <td><label>Employee Type:</label>
+                          <td><label>Employee Type <b style={{color:'red'}}>*</b>:</label>
                           <select id='employeeTypeDto.id' name='employeeTypeDto.id' className='form-select' value={employeeType} onChange={handleChange}>
                           <option value="-1">-- select --</option>
                           {
@@ -339,6 +457,11 @@ const UserApprovalForm = () => {
                               ))
                           }
                           </select>
+                          {
+                            empTypeEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Employee type can't be empty!</i>
+                            :
+                            <></>
+                          }
                           </td>
                           <td><label>Supervisor Name:</label>
                           <Select options={employeeSelection} id='superVisorNameDto.id' name='superVisorNameDto.id' onChange={(e)=>{handleSupervisor(e,"superVisorNameDto.id")}} placeholder="- Search option -" 
@@ -355,7 +478,7 @@ const UserApprovalForm = () => {
                           </select>
                         */}
                           </td>
-                          <td><label>Department:</label>
+                          <td><label>Department <b style={{color:'red'}}>*</b>:</label>
                           <select id='departmentDto.id' name='departmentDto.id' className='form-select' value={department} onChange={handleChange}>
                           <option value="-1">-- select --</option>
                           {
@@ -364,8 +487,13 @@ const UserApprovalForm = () => {
                               ))
                           }
                           </select>
+                          {
+                            deptEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Department can't be empty!</i>
+                            :
+                            <></>
+                          }
                           </td>
-                          <td><label>Designation:</label>
+                          <td><label>Designation <b style={{color:'red'}}>*</b>:</label>
                           <select id='designationDto.id' name='designationDto.id' className='form-select' value={designation} onChange={handleChange}>
                           <option value="-1">-- select --</option>
                           {
@@ -374,9 +502,46 @@ const UserApprovalForm = () => {
                               ))
                           }
                           </select>
+                          {
+                            desgEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Designation can't be empty!</i>
+                            :
+                            <></>
+                          }
                           </td>
                         </tr>
                         <tr>
+                          <td>
+                            <label> Company <b style={{color:'red'}}>*</b>:</label>
+                            <select type='text' id='joiningInstitutionDto.id' name='joiningInstitutionDto.id' value={updateUserRegister && updateUserRegister.joiningInstitutionDto && updateUserRegister.joiningInstitutionDto.id} className='form-select' onChange={(e)=>{handleChange(e)}}>
+                              <option value="-1">-- select --</option>
+                              {
+                                  institutions.map((org)=>(
+                                      <option value={org.id}>{org.code}</option>
+                                  ))
+                              }
+                              </select>
+                              {
+                                  companyEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Company field can't be empty!</i>
+                                  :
+                                  <></>
+                              }
+                          </td>
+                          <td>
+                            <label style={{color:'red'}}> Staff Type :</label>
+                            <select id='staffTypeDto.id' name='staffTypeDto.id' className='form-select' value={staffType} onChange={(e)=>{handleChange(e)}}>
+                              <option value="-1">-- select --</option>
+                              {                               
+                                  staffTypes.map((stf)=>(
+                                      <option value={stf.id}>{stf.name}</option>
+                                  ))                                
+                              }
+                              </select>
+                              {
+                                  staffEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Staff type can't be empty!</i>
+                                  :
+                                  <></>
+                              }
+                          </td>
                           <td><label>Marital Status:</label>
                           {/* 
                           <input type='text' name='maritalStatus' className='form-control' onChange={handleChange} value={updateUserRegister && updateUserRegister.maritalStatus} />
@@ -391,24 +556,34 @@ const UserApprovalForm = () => {
                             </select>
                           </td>
                           <td>
-                            <label>Gender:</label>
+                            <label>Gender <b style={{color:'red'}}>*</b>:</label>
                             <select id='gender' name='gender' className='form-select' onChange={handleChange} value={genderValue}>
+                              <option value="-1">-- Select --</option> 
                               <option value="Male">Male</option>  
                               <option value="Female">Female</option>
                               <option value="Others">Others</option>
                             </select>
-                          </td>
+                            {
+                              genderEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Gender field can't be empty!</i>
+                              :
+                              <></>
+                            }
+                          </td>                   
+                        </tr> 
+                        <tr>
                           <td><label>Qualification:</label>
-                            <input type='text' name='qualification' className='form-control' onChange={handleChange} value={updateUserRegister && updateUserRegister.qualification} />
+                            <textarea type='text' name='qualification' className='form-control' onChange={handleChange} value={updateUserRegister && updateUserRegister.qualification} />
                           </td>
                           <td><label>Address:</label>
                             <textarea type='text' cols={50} rows={2} name='address' className='form-control' onChange={handleChange} value={updateUserRegister && updateUserRegister.address} />
                           </td>
-                                               
-                        </tr> 
-                        <tr>
-                          <td><label>Remarks:</label>
-                            <textarea type='text' cols={30} rows={2} name='remarks' className='form-control' onChange={handleChange} value={updateUserRegister && updateUserRegister.remarks} />
+                          <td><label>Remarks <b style={{color:'red'}}>*</b>:</label>
+                            <textarea type='text' cols={30} rows={2} id="remarks" name='remarks' className='form-control' onChange={handleChange} value={updateUserRegister && updateUserRegister.remarks} />
+                            {
+                              remarkEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Please enter proper remarks!</i>
+                              :
+                              <></>
+                            }
                           </td> 
                         </tr>                   
                       </tbody>
@@ -437,6 +612,7 @@ const UserApprovalForm = () => {
               <p>footer</p>
             </CardFooter>
         </Card>
+        <ToastContainer></ToastContainer>
       </form>
     </div>
   )

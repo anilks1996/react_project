@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { showEmployeePopup } from '../establishment_redux/slices/establishment_slice/employeeSetupSlice';
 import { deleteDocumentVerificationById, findDocumentVerificationByEmployee } from './document_slice/documentVerificationSlice';
 import { ToastContainer, toast } from 'react-toastify';
+import { saveAs } from 'file-saver';
 
 
 const ScanUploadDocumentEmp = () => {
@@ -102,22 +103,36 @@ const ScanUploadDocumentEmp = () => {
         dispatch(deleteDocumentVerificationById(docvId));
       }      
     }
+
     const handleDownload = async(event,docv)=>{
       event.preventDefault();
       try {
         const currentUser=localStorage.getItem("current-jwtToken");
-        const response = await fetch(BASE_URL+`api/documentVerification/downloadDocument/${docv.document.docName}`, {
-            responseType: 'blob', // Important
-            headers: {"Authorization":`Bearer ${currentUser}`},
+        const response = await fetch(BASE_URL+`api/documentVerification/downloadDocument/${docv.id}`, {
+          method: 'GET',
+          headers: {'Content-Type': 'application/pdf',"Authorization":`Bearer ${currentUser}`,
+          },
+          
         })
-        const url = window.URL.createObjectURL(new Blob([response.data]));
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', (docv.document && docv.document.docName)); // or any other extension
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-    } catch (error) {
+        .then((response) => response.blob())
+        .then((blob) => {
+          // Create a new object URL for the Blob
+          const url = window.URL.createObjectURL(new Blob([blob]));
+          // Create a link element
+          const link = document.createElement('a');
+          // Set the download attribute with a filename
+          link.href = url;
+          link.setAttribute('download', docv.document.docName+'.pdf');
+          // Append the link to the body
+          document.body.appendChild(link);
+          // Simulate a click to trigger the download
+          link.click();
+          // Remove the link from the document
+          link.parentNode.removeChild(link);
+        })
+        .catch((error) => console.error('Error downloading the PDF:', error));
+
+      } catch (error) {
         console.error('Error downloading the file',+error);
     }
 

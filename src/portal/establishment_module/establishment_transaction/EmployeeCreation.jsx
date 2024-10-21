@@ -33,6 +33,18 @@ const EmployeeCreation = () => {
     const {subEmployeeTypes} = useSelector((state)=>state.allstorereducer.subEmpT);
     const {employeeById} = useSelector((state)=>state.allstorereducer.employeeData);
     const [isAction,setIsAction] = useState(false);
+    const [nameEmpty,setNameEmpty] = useState(false);
+    const [salEmpty,setSalEmpty] = useState(false);
+    const [companyEmpty,setCompanyEmpty] = useState(false);
+    const [genderEmpty,setGenderEmpty] = useState(false);
+    const [adharEmpty,setAdharEmpty] = useState(false);
+    const [deptEmpty,setDeptEmpty] = useState(false);
+    const [desgEmpty,setDesgEmpty] = useState(false);
+    const [empTypeEmpty,setEmpTypeEmpty] = useState(false);
+    const [staffEmpty,setStaffEmpty] = useState(false);
+    const [emailEmpty,setEmailEmpty] = useState(false);
+    const [phoneEmpty,setPhoneEmpty] = useState(false);
+    const [flag,setFlag]=useState(false);
 
     useEffect(()=>{
         dispatch(findAllInstitutions());
@@ -52,16 +64,21 @@ const EmployeeCreation = () => {
     }
     const handleChange=(e)=>{
       if(e.target.name==="joiningInstitutionDto.id"){
+        setCompanyEmpty(false);
         setEmployee({...employee, ['joiningInstitutionDto']:{'id':e.target.value,'code':'SBI'}})
       }else if(e.target.name==="departmentDto.id"){
+        setDeptEmpty(false);
         setEmployee({...employee, ['departmentDto']:{'id':e.target.value,'code':'SBI'}})
       }else if(e.target.name==="designationDto.id"){
+        setDesgEmpty(false);
         setEmployee({...employee, ['designationDto']:{'id':e.target.value,'code':'SBI'}})
       }else if(e.target.name==="employeeTypeDto.id"){
+        setEmpTypeEmpty(false);
         setEmployee({...employee, ['employeeTypeDto']:{'id':e.target.value,'code':'SBI'}})
       }else if(e.target.name==="joinDesignationDto.id"){
         setEmployee({...employee, ['joinDesignationDto']:{'id':e.target.value,'code':''}})
       }else if(e.target.name==="staffTypeDto.id"){
+        setStaffEmpty(false);
         setEmployee({...employee, ['staffTypeDto']:{'id':e.target.value,'code':''}})
       }else if(e.target.name==="staffGradeDto.id"){
         setEmployee({...employee, ['staffGradeDto']:{'id':e.target.value,'code':''}})
@@ -69,6 +86,26 @@ const EmployeeCreation = () => {
         setEmployee({...employee, ['subEmployeeTypeDto']:{'id':e.target.value,'code':''}})
       }else if(e.target.name==="pastOrgDepartmentDto.id"){
         setEmployee({...employee, ['pastOrgDepartmentDto']:{'id':e.target.value,'code':''}})
+      
+      }else if(e.target.name==="salutation"){
+        setSalEmpty(false);
+        setEmployee({...employee, ['salutation']:e.target.value})
+      }else if(e.target.name==="firstName"){
+        setNameEmpty(false);
+        setEmployee({...employee, ['firstName']:e.target.value})
+      }else if(e.target.name==="uniqueIdNo"){
+        setAdharEmpty(false);
+        setEmployee({...employee, ['uniqueIdNo']:e.target.value})
+      }else if(e.target.name==="sex"){
+        setGenderEmpty(false);
+        setEmployee({...employee, ['sex']:e.target.value})
+      }else if(e.target.name==="officialMail"){
+        setEmailEmpty(false);
+        setEmployee({...employee, ['officialMail']:e.target.value})
+      }else if(e.target.name==="officeMobile"){
+        setPhoneEmpty(false);
+        setEmployee({...employee, ['officeMobile']:e.target.value})
+
       }else{
         setEmployee({...employee,[e.target.name]:e.target.value}); 
       }
@@ -76,6 +113,13 @@ const EmployeeCreation = () => {
     }
     const createEmployee =(e)=>{
         e.preventDefault();
+        console.log(employee);  
+        if(validateFormData(employee)){
+            //go ahead
+            alert('all filled.')
+        }else{
+            return false;
+        }
         const empObj = {...employee,["staffGradeDto"]:{"id":1,"code":"sbi"}};
         dispatch(createEmployeeTab(empObj));
         setIsAction(true);
@@ -86,6 +130,41 @@ const EmployeeCreation = () => {
           });
         }       
         //navigatePage("/establishmentTransactions/editGeneralEmployee");
+    }
+    const validateFormData=(employeeObj)=>{
+        if(employeeObj!=undefined){
+            setFlag(true);
+            if(employeeObj.salutation===undefined || employeeObj.salutation==-1){
+                setSalEmpty(true); setFlag(false);
+            }if(employeeObj.firstName===undefined || employeeObj.firstName===''){
+                setNameEmpty(true); setFlag(false);
+            }if(employeeObj.uniqueIdNo===undefined || employeeObj.uniqueIdNo===''){
+                setAdharEmpty(true); setFlag(false);
+            }if(employeeObj.sex==-1 || employeeObj.sex===undefined){
+                setGenderEmpty(true); setFlag(false);
+            }if(employeeObj.officeMobile==='' || employeeObj.officeMobile===undefined){
+                setPhoneEmpty(true); setFlag(false);
+            }if(employeeObj.officialMail==='' || employeeObj.officialMail===undefined){
+                setEmailEmpty(true); setFlag(false);
+            }if(employeeObj.joiningInstitutionDto===undefined || employeeObj.joiningInstitutionDto.id==-1 || employeeObj.joiningInstitutionDto.id===undefined){
+                setCompanyEmpty(true); setFlag(false);
+            }if(employeeObj.departmentDto===undefined || employeeObj.departmentDto.id==-1 || employeeObj.departmentDto.id===undefined){
+                setDeptEmpty(true); setFlag(false);
+            }if(employeeObj.designationDto===undefined || employeeObj.designationDto.id===undefined || employeeObj.designationDto.id==-1){
+                setDesgEmpty(true); setFlag(false);
+            }if(employeeObj.employeeTypeDto===undefined || employeeObj.employeeTypeDto.id==-1 || employeeObj.employeeTypeDto.id===undefined){
+                setEmpTypeEmpty(true); setFlag(false);
+            }if(employeeObj.staffTypeDto===undefined || employeeObj.staffTypeDto.id==-1 || employeeObj.staffTypeDto.id===undefined){
+                setStaffEmpty(true); setFlag(false);
+            }
+            return flag;
+        }else{
+            toast.error("Kindly fill form correctly !!", {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 3000,
+            });
+            return false;
+        }        
     }
     const msgAlert=()=>{
         navigatePage("/establishmentTransactions/employeeRegister");
@@ -140,7 +219,7 @@ const EmployeeCreation = () => {
                     <tbody>
                         <tr>
                         <td scope="row">
-                        <label>Salutation</label>                           
+                        <label style={{color:'red'}}> Salutation :</label>                           
                             <select id='salutation' name='salutation' className='form-select' value={employee && employee.salutation} onChange={(e)=>{handleChange(e)}}>
                                 <option value="-1">-- select --</option>
                                 <option value="Prof.">Prof.</option>
@@ -154,17 +233,27 @@ const EmployeeCreation = () => {
                                 <option value="Major.">Major.</option>
                                 <option value="Capt.">Capt.</option>
                             </select>
+                            {
+                                salEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Salutation can't be empty!</i>
+                                :
+                                <></>
+                            }                        
                         </td>
                         <td scope="row">
-                            <label>First Name</label>
+                            <label style={{color:'red'}}> First Name : </label>
                             <input type='text' id='firstName' name='firstName' className='form-control' value={employee && employee.firstName} onChange={(e)=>{handleChange(e)}}/>
+                            {
+                                nameEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>First name can't be empty!</i>
+                                :
+                                <></>
+                            }
                         </td>
                         <td scope="row">
-                            <label>Middle Name</label>
+                            <label>Middle Name : </label>
                             <input type='text' id='middleName' name='middleName' className='form-control' value={employee && employee.middleName} onChange={(e)=>{handleChange(e)}}/>
                         </td>
                         <td scope="row">
-                            <label>Last Name</label>
+                            <label>Last Name : </label>
                             <input type='text' id='surName' name='surName' className='form-control' value={employee && employee.surName} onChange={(e)=>{handleChange(e)}}/>
                         </td>
                         </tr>
@@ -174,25 +263,40 @@ const EmployeeCreation = () => {
                     <tbody>
                         <tr>
                         <td scope="row">
-                            <label>Gender</label>
+                            <label style={{color:'red'}}> Gender : </label>
                             <select id='sex' name='sex' className='form-select' value={employee && employee.sex} onChange={(e)=>{handleChange(e)}}>
                                 <option value="-1">-- select --</option>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
                                 <option value="Other">Other</option>
                             </select>
+                            {
+                                genderEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Gender field can't be empty!</i>
+                                :
+                                <></>
+                            }
                         </td>
                         <td scope="row">
-                            <label>Aadhar Number</label>
+                            <label style={{color:'red'}}> Aadhar Number : </label>
                             <input type='text' id='uniqueIdNo' name='uniqueIdNo' className='form-control' value={employee && employee.uniqueIdNo} onChange={(e)=>{handleChange(e)}}/>
+                            {
+                                adharEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Adhar No can't be empty!</i>
+                                :
+                                <></>
+                            }
                         </td>
                         <td scope="row">
-                            <label>Id Card No</label>  
+                            <label>Id Card No :</label>  
                             <input type='text' id='idCode' name='idCode' className='form-control' value={employee && employee.idCode} onChange={(e)=>{handleChange(e)}}/>
                         </td>
                         <td scope="row">
-                            <label>Official Email</label>
+                            <label style={{color:'red'}}> Official Email :</label>
                             <input type='text' id='officialMail' name='officialMail' className='form-control' value={employee && employee.officialMail} onChange={(e)=>{handleChange(e)}}/>
+                            {
+                                emailEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Email Id can't be empty!</i>
+                                :
+                                <></>
+                            }
                         </td>
                         </tr>
                     </tbody>                    
@@ -201,7 +305,7 @@ const EmployeeCreation = () => {
                     <tbody>
                         <tr>
                         <td scope="row">
-                            <label>Company</label>
+                            <label style={{color:'red'}}> Company :</label>
                             <select type='text' id='joiningInstitutionDto.id' name='joiningInstitutionDto.id' value={employee && employee.departmentDto && employee.departmentDto.institutionDto && employee.departmentDto.institutionDto.id} className='form-select' onChange={(e)=>{handleChange(e)}}>
                             <option value="-1">-- select --</option>
                             {
@@ -210,9 +314,14 @@ const EmployeeCreation = () => {
                                 ))
                             }
                             </select>
+                            {
+                                companyEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Company field can't be empty!</i>
+                                :
+                                <></>
+                            }
                         </td>
                         <td scope="row">
-                            <label>Department</label>
+                            <label style={{color:'red'}}> Department :</label>
                             <select id='departmentDto.id' name='departmentDto.id' className='form-select' value={employee && employee.departmentDto && employee.departmentDto.id} onChange={(e)=>{handleChange(e)}}>
                             <option value="-1">-- select --</option>
                             {                               
@@ -221,9 +330,14 @@ const EmployeeCreation = () => {
                                 ))                               
                             }
                             </select>
+                            {
+                                deptEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Department can't be empty!</i>
+                                :
+                                <></>
+                            }
                         </td>
                         <td scope="row">
-                            <label>Designation</label>
+                            <label style={{color:'red'}}> Designation :</label>
                             <select id='designationDto.id' name='designationDto.id' className='form-select' value={employee && employee.designationDto && employee.designationDto.id} onChange={(e)=>{handleChange(e)}}>
                             <option value="-1">-- select --</option>
                             {
@@ -232,9 +346,14 @@ const EmployeeCreation = () => {
                                 ))
                             }
                             </select>
+                            {
+                                desgEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Designation can't be empty!</i>
+                                :
+                                <></>
+                            }
                         </td>
                         <td scope="row">
-                            <label>Additional Responsibility</label>
+                            <label>Additional Responsibility :</label>
                             <select id='joinDesignationDto.id' name='joinDesignationDto.id' className='form-select' value={employee && employee.joiningDesignationDto && employee.joiningDesignationDto.id} onChange={(e)=>{handleChange(e)}}>
                             <option value="-1">-- select --</option>
                             {                               
@@ -251,7 +370,7 @@ const EmployeeCreation = () => {
                     <tbody>
                         <tr>
                         <td scope="row">
-                            <label>Employee Type</label>
+                            <label style={{color:'red'}}> Employee Type :</label>
                             <select id='employeeTypeDto.id' name='employeeTypeDto.id' className='form-select' value={employee && employee.employeeTypeDto && employee.employeeTypeDto.id} onChange={(e)=>{handleChange(e)}}>
                             <option value="-1">-- select --</option>
                             {                                
@@ -260,9 +379,14 @@ const EmployeeCreation = () => {
                                 ))                                
                             }
                             </select>
+                            {
+                                empTypeEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Employee type can't be empty!</i>
+                                :
+                                <></>
+                            }
                         </td>
                         <td scope="row">
-                            <label>Staff Type</label>
+                            <label style={{color:'red'}}> Staff Type :</label>
                             <select id='staffTypeDto.id' name='staffTypeDto.id' className='form-select' value={employee && employee.staffTypeDto && employee.staffTypeDto.id} onChange={(e)=>{handleChange(e)}}>
                             <option value="-1">-- select --</option>
                             {                               
@@ -271,16 +395,26 @@ const EmployeeCreation = () => {
                                 ))                                
                             }
                             </select>
+                            {
+                                staffEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Staff type can't be empty!</i>
+                                :
+                                <></>
+                            }
                         </td>
                         <td scope="row">
-                            <label>Staff Grade</label>
+                            <label><b style={{color:'red'}}>*</b> Staff Grade :</label>
                             <select id='staffGradeDto.id' name='staffGradeDto.id' className='form-select' value={employee && employee.staffGradeDto && employee.staffGradeDto.id} onChange={(e)=>{handleChange(e)}}>
                                 <option value={1}>NA</option>
                             </select>
                         </td>
                         <td scope="row">
-                            <label>Office Phone No</label>
+                            <label style={{color:'red'}}>Office Phone No :</label>
                             <input type='text' id='officeMobile' name='officeMobile' value={employee && employee.officeMobile} className='form-control' onChange={(e)=>{handleChange(e)}}/>
+                            {
+                                phoneEmpty?<i style={{color:'red',fontSize:'0.8rem'}}>Email field can't be empty!</i>
+                                :
+                                <></>
+                            }
                         </td>
                         </tr>
                     </tbody>
@@ -289,7 +423,7 @@ const EmployeeCreation = () => {
                     <tbody>
                         <tr>
                         <td scope="row">
-                            <label>Sub Employee Type</label>
+                            <label>Sub Employee Type :</label>
                             <select id='subEmployeeTypeDto.id' name='subEmployeeTypeDto.id' className='form-select' value={employee && employee.subEmployeeTypeDto && employee.subEmployeeTypeDto.id} onChange={(e)=>{handleChange(e)}}>
                             <option value="-1">-- select --</option>
                             {                               
@@ -300,7 +434,7 @@ const EmployeeCreation = () => {
                             </select>
                         </td>
                         <td scope="row">
-                            <label>Past Organization Department</label>
+                            <label>Past Organization Department :</label>
                             <select id='pastOrgDepartmentDto.id' name='pastOrgDepartmentDto.id' className='form-select' value={employee && employee.pastOrgDepartmentDto && employee.pastOrgDepartmentDto.id} onChange={(e)=>{handleChange(e)}}>
                             <option value="-1">-- select --</option>
                             {                               
@@ -311,11 +445,11 @@ const EmployeeCreation = () => {
                             </select>
                         </td>
                         <td>
-                            <label>Job Located From Date</label>
+                            <label>Job Located From Date :</label>
                             <input type='date' formTarget='YYYY-MM-DD' id='jobLocationFromDate' name='jobLocationFromDate' value={jobLocationByEmpId && jobLocationByEmpId.fromDate} className='form-control' onChange={(e)=>{handleChange(e)}}/>
                         </td>
                         <td>
-                            <label>Job Location</label>
+                            <label>Job Location :</label>
                             <input type='text' id='locationInCity.id' name='locationInCity.id' value={jobLocationByEmpId && jobLocationByEmpId.locationInCityDto && jobLocationByEmpId.locationInCityDto.name} className='form-control' onChange={(e)=>{handleChange(e)}}/>
                         </td>
                         </tr>
