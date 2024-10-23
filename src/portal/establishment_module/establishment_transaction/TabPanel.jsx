@@ -7,7 +7,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { Button, Card, Col, Row} from 'react-bootstrap';
-import { CardBody, CardHeader, CardText, CardTitle} from 'reactstrap';
+import { CardBody, CardHeader, CardText, CardTitle, Table} from 'reactstrap';
 import EditGeneralEmployeeTab from './EditGeneralEmployeeTab';
 import { FaBackward, FaUser } from 'react-icons/fa';
 import EditEmploymentTab from './EditEmploymentTab';
@@ -19,7 +19,9 @@ import EditFamilyTab from './EditFamilyTab';
 import EditOthersTab from './EditOthersTab';
 import EditPayrollTab from './EditPayrollTab';
 import boss_photo from '../../establishment_module/document/rkgupta.png';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { downloadDocumentVerificationById, findDocumentVerificationByEmployee } from './document_slice/documentVerificationSlice';
+import { Download } from '@mui/icons-material';
 
 
 function TabPanel(props) {
@@ -67,10 +69,17 @@ export default function FullWidthTabs() {
   };
 
   const {employeeById, loading} = useSelector((state)=>state.allstorereducer.employeeData);
+  const {documentVers,docVerLoading} = useSelector((state)=>state.allstorereducer.documentVerification); 
+  const dispatch = useDispatch();
 
   React.useEffect(()=>{
-    
+    dispatch(findDocumentVerificationByEmployee(employeeById.id));
   })
+
+  const handleDownload = async(event,docvId)=>{
+    event.preventDefault();
+    dispatch(downloadDocumentVerificationById(docvId));
+  }
 
   return (
     <div>
@@ -78,11 +87,11 @@ export default function FullWidthTabs() {
         {/* <CardHeader className='p-0'><Button onClick={()=>{window.history.back();}}><FaBackward/></Button> Establishment Transactions / Employee Register</CardHeader> */}
         <Row>
         <Col sm="2">
-            <Card className='form-shadow'>
-            <CardHeader>
-                <FaUser /> My Profile
-            </CardHeader>
-            <CardBody>
+            <Card className='form-shadow mt-0'>
+              <CardHeader>
+                  <FaUser /> ID : {employeeById.code}
+              </CardHeader>
+              <CardBody className='p-1'>
                 <CardTitle tag="h5">
                 {
                   employeeById.code=='20003'?
@@ -91,13 +100,34 @@ export default function FullWidthTabs() {
                   <img src="" width="90rem" height="100rem" text-align="center" />
                 }                
                 </CardTitle>
-                <CardHeader>
-                  Emp Code : {employeeById.code}
-                </CardHeader>
-                <CardHeader>
-                  Department : {employeeById.departmentDto && employeeById.departmentDto.name}
-                </CardHeader>
-                </CardBody>
+                <CardTitle>
+                  Name : {employeeById && employeeById.fullName}
+                </CardTitle>
+              </CardBody>
+              <CardHeader> Documents </CardHeader>
+              <CardBody className='p-0' style={{fontSize:'0.8rem'}}>  
+              {
+                documentVers && documentVers.length>0?
+                <Table>
+                  <tbody>
+                      {
+                        documentVers.map((docv)=>(
+                          
+                          docv && docv.uploadDocument!=null && docv.uploadDocument!=undefined && docv.uploadDocument!=''?                          
+                            <tr key={docv.id} className='p-0'>
+                              <td> {docv && docv.uploadDocument} </td>
+                              <td> <button onClick={(e)=>{handleDownload(e,docv.id)}} style={{backgroundColor:'white', border:'none'}} title='Download the file'><Download style={{color:'green'}}/></button> </td>
+                            </tr>
+                            :
+                            <></>
+                        ))
+                      }
+                  </tbody>
+                </Table>
+                :
+                <div></div>
+              }
+              </CardBody>
             </Card>
         </Col>
         <Col sm="10">        

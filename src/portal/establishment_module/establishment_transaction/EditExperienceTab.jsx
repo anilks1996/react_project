@@ -16,13 +16,10 @@ const EditExperienceTab = () => {
     }
   return (
     <div>
-        <form style={{height:'45rem'}}>
+        <form >
             <Row className="mt-1">
             <Col sm="12">
             <Card>
-                <CardHeader>
-                    <BiTable />General Details
-                </CardHeader>
                 <CardBody>
                     {/*  hg */}
                     <Table >        

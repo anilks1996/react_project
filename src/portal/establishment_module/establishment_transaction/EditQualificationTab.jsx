@@ -15,13 +15,10 @@ const EditQualificationTab = () => {
     }
   return (
     <div>
-        <form style={{height:'40rem'}}>
+        <form>
             <Row className="mt-1">
             <Col sm="12">
-            <Card>
-                <CardHeader>
-                    <BiTable />General Details
-                </CardHeader>
+            <Card className='form-control'>
                 <CardBody>
                     {/*  hg */}
                     <Table style={{fontSize:'0.8rem'}}>        

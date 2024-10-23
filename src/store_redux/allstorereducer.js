@@ -42,6 +42,7 @@ import roleDashboardsSlice from "../portal/admin_setup_module/admin_setup_redux/
 import dashboardWidgetsSlice from "../portal/admin_setup_module/admin_setup_redux/dashboardWidgetsSlice";
 import documentVerificationSlice from "../portal/establishment_module/establishment_transaction/document_slice/documentVerificationSlice";
 import tourSlices from "../portal/establishment_module/tour_application/tour_redux/tourSlices";
+import generalFileUploadSlice from "../portal/document_upload/document_upload_redux/generalFileUploadSlice";
 
 
 export default combineReducers({
@@ -66,6 +67,7 @@ export default combineReducers({
     bankBranch:bankBranchesSlice,
     configMaster:configurationMasterSlice,
     tours:tourSlices,
+    fileUpload:generalFileUploadSlice,
 //Admin Setup
     userGroup:userGroupSlice,
     roleModule:roleModuleSlice,

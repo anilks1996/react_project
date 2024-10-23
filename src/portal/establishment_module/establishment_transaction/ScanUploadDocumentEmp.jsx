@@ -7,7 +7,7 @@ import { Alert } from 'react-bootstrap';
 import { ArrowBack, Delete, DeleteSharp, DeleteTwoTone, Download, Save } from '@mui/icons-material';
 import { useDispatch, useSelector } from 'react-redux';
 import { showEmployeePopup } from '../establishment_redux/slices/establishment_slice/employeeSetupSlice';
-import { deleteDocumentVerificationById, findDocumentVerificationByEmployee } from './document_slice/documentVerificationSlice';
+import { deleteDocumentVerificationById, downloadDocumentVerificationById, findDocumentVerificationByEmployee } from './document_slice/documentVerificationSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import { saveAs } from 'file-saver';
 
@@ -134,8 +134,7 @@ const ScanUploadDocumentEmp = () => {
 
       } catch (error) {
         console.error('Error downloading the file',+error);
-    }
-
+      }
     }
     
   return (
@@ -197,7 +196,7 @@ const ScanUploadDocumentEmp = () => {
                         {
                           docv && docv.uploadDocument?
                           <div> <b style={{color:'blue'}}>{docv && docv.uploadDocument}</b>
-                            &nbsp; &nbsp; <button onClick={(e)=>{handleDelete(docv.id)}} style={{backgroundColor:'white', border:'none'}} title='Delete the file'><Delete style={{color:'red'}}/> </button>
+                            &nbsp; &nbsp; <button onClick={(e)=>{handleDelete(e,docv.id)}} style={{backgroundColor:'white', border:'none'}} title='Delete the file'><Delete style={{color:'red'}}/> </button>
                             &nbsp; <button onClick={(e)=>{handleDownload(e,docv)}} style={{backgroundColor:'white', border:'none'}} title='Download the file'><Download style={{color:'green'}}/></button>
                           </div>
                           :
